@@ -1,5 +1,6 @@
 from Transaction import Transaction
 from Wallet import Wallet
+import json
 
 if __name__ == '__main__':
     
@@ -17,4 +18,8 @@ if __name__ == '__main__':
     
     
     transaction.sign(signature)
-    print(transaction.toJson())
+    #print(transaction.toJson())
+    
+    signatureValid = Wallet.signatureValid(transaction.toJson(),signature,wallet.publicKeyString())
+    
+    print(signatureValid)
